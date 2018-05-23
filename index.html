@@ -13,6 +13,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* The grid container */
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        'header header header' 
+        'gap gap gaptxt1' 
+        'title title title' 
+        'one two three'
+        'four five six'
+        'footer footer footer';
+/* grid-column-gap: 10px; - if you want gap between the columns */
+}
+    
 /* Style the header */
 .header {
     grid-area: header;
@@ -21,27 +34,6 @@ body {
     text-align: center;
     font-size: 35px;
 }
-
-/* The grid container */
-.grid-container {
-    display: grid;
-    grid-template-areas: 
-        'header header header header header' 
-        'gap gap gap gaptxt1 gaptxt2' 
-        'left title title title right' 
-        'left main main main right' 
-        'footer footer footer footer footer';
-  /* grid-column-gap: 10px; - if you want gap between the columns */
-}
-    
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other 
-@media (max-width: 1200px) {grid-container  {
-    grid-template-areas: 
-        'header header header header header' 
-        'main main main main main main'  
-        'footer footer footer footer footer;
-}}
-*/
 .gap {
     grid-area: gap;
     height: 80px;
@@ -52,49 +44,58 @@ body {
     height: 80px;
     padding: 30px;
     text-align: right;
-    font-size: 18px;
+    font-size: 20px;
 }
-.gaptxt2 {
-    grid-area: gaptxt2;
-}  
 .title {
     grid-area: title;
     height: 50px;
-    padding: 13px;
+    padding: 12px;
     text-align: left;
-    font-size: 18px;
+    font-size: 20px;
 }
 .apply {
     grid-area: apply;
     padding: 5px;
 }
     
-.left,
-.right 
-{
-    padding: 20px;
-    height: 1550px; 
-}
-.main
-{
-    padding: 20px;
-    height: 1500px; /* Should be removed. Only for demonstration */
-}
-
-/* Style the left column */
-.left {
-    grid-area: left;
-}
-
 /* Style the main column */
-.main {
-    grid-area: main;
+.one
+{
+    grid-area: one;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
 }
-    
-/* Style the right column */
-.right {
-    grid-area: right;
+.two
+{
+    grid-area: two;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
 }
+.three
+{
+    grid-area: three;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
+}
+.four
+{
+    grid-area: four;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
+}
+.five
+{
+    grid-area: five;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
+}
+.six
+{
+    grid-area: six;
+    padding: 20px;
+    height: 100%; /* Should be removed. Only for demonstration */
+}
+
 
 /* Style the footer */
 .footer {
@@ -125,28 +126,62 @@ ul.a
     list-style-type: inherit;;
 }
     
-            table {
-                width: 100%;
-                border-collapse:collapse;
-                font-size: 15px;
-            }
-            table, th, td {
-                border: 5px solid white;
-            }
-            th {
-                background-color: lightgray;
-                height: 15px;
-                width: 180px;
-                text-align: left;
-                padding: 15px;
-            }
-            td {
-                background-color: ghostwhite;
-                height: 15px;
-                padding: 15px;
-                vertical-align: bottom;
-            }
-    
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+table, th, td {
+    border: 5px solid white;
+}
+
+th {
+    background-color: lightgray;
+    height: 15px;
+    text-align: left;
+    padding: 15px;
+    width: 150px;
+}
+td {
+    background-color: ghostwhite;
+    height: 15px;
+    padding: 15px;
+    vertical-align: bottom;
+}
+table:hover {
+    border: 6px solid LightGoldenRodYellow ;
+}
+@media only screen and (max-width: 960px) {
+    .grid-container  {
+        grid-template-areas:
+        'header header' 
+        'gap gaptxt1' 
+        'title title' 
+        'one two'
+        'three four'
+        'five six'
+        'footer footer';
+}}
+
+@media only screen and (max-width: 768px) {
+    .grid-container  {
+        grid-template-areas:
+        'header header header' 
+        'gap gap gaptxt1' 
+        'title title title' 
+        'one one one'
+        'two two two'
+        'three three three'
+        'four four four'
+        'five five five'
+        'six six six'
+        'footer footer footer';
+}}
+a:link, a:visited { 
+    color: black;
+    text-decoration: none;
+    cursor: grabbing;
+}   
 </style>
 </head>
 <body>
@@ -157,69 +192,158 @@ ul.a
 </div>
 <div class="gap" style="background-color:#eee;"></div>
 <div class="gaptxt1" style="background-color:#eee;">您好，Ａ</div>
-<div class="title" style="background-color:#bbb;">碩士班招生範本</div>
-<div class="gaptxt2" style="background-color:#eee;"></div>
-<div class="left" style="background-color:#eee;"></div>
-<div class="main" style="background-color:#fff;">
-<div>
+<div class="title" style="background-color:#bbb;">碩士班招生範本 - 考生列表</div>
+<div class="one" style="background-color:#fff;">
+    <a href="./index.html">
     <table>
         <tr>
-        <th colspan="2">申請人資料</th>
+        <th colspan="2" style="font-size: 15px">1</th>
         </tr>
         <tr>
         <th>姓名</th>
         <td>楊同學</td>
         </tr>
         <tr>
-        <th>學號</th>
+        <th>准考證號</th>
         <td>210296810</td>
         </tr>
         <tr>
-        <th>電話</th>
-        <td>0911123321</td>
+        <th>畢業學校</th>
+        <td>國立臺灣科技大學</td>
         </tr>
         <tr>
-        <th>Email</th>
-        <td>wei@tnua.edu.tw</td>
+        <th>畢業系所</th>
+        <td>工商業設計學系</td>
         </tr>
     </table>
+    </a>
 </div>
-<br>
-<div>
+    
+<div class="two" style="background-color:#fff;">
+    <a href="./index.html">
     <table>
         <tr>
-        <th>作品集</th>
-        <td> <a href="./a.pdf" download="學生資料">點此下載</a></td>
+        <th colspan="2" style="font-size: 15px">2</th>
         </tr>
         <tr>
-        <th>作品名稱</th>
-        <td>12345</td>
+        <th>姓名</th>
+        <td>王同學</td>
         </tr>
         <tr>
-        <th>創作年份</th>
-        <td>2018</td>
+        <th>准考證號</th>
+        <td>210296810</td>
         </tr>
         <tr>
-        <th>創作概念</th>
-        <td>創作概念創作概念</td>
+        <th>畢業學校</th>
+        <td>實踐大學</td>
         </tr>
         <tr>
-        <th>Email</th>
-        <td>wei@tnua.edu.tw</td>
-        </tr>
-        <th colspan="2">作品集</th> 
-        </tr>
-        <tr>
-        <th colspan="2" class="video-container">
-        <div >
-        <iframe src="https://www.youtube.com/embed/AdW0yATHzu4?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-        </th> 
+        <th>畢業系所</th>
+        <td>多媒體設計學系</td>
         </tr>
     </table>
-</div>   
+    </a>
+</div>  
+<div class="three" style="background-color:#fff;">
+    <a href="./index.html">
+    <table>
+        <tr>
+        <th colspan="2" style="font-size: 15px">3</th>
+        </tr>
+        <tr>
+        <th>姓名</th>
+        <td>張同學</td>
+        </tr>
+        <tr>
+        <th>准考證號</th>
+        <td>210296810</td>
+        </tr>
+        <tr>
+        <th>畢業學校</th>
+        <td>陽明大學</td>
+        </tr>
+        <tr>
+        <th>畢業系所</th>
+        <td>牙醫系</td>
+        </tr>
+    </table>
+    </a>
 </div>
-<div class="right" style="background-color:#eee;"></div>
+<div class="four" style="background-color:#fff;">
+    <a href="./index.html">
+    <table>
+        <tr>
+        <th colspan="2" style="font-size: 15px">4</th>
+        </tr>
+        <tr>
+        <th>姓名</th>
+        <td>陳同學</td>
+        </tr>
+        <tr>
+        <th>准考證號</th>
+        <td>210296810</td>
+        </tr>
+        <tr>
+        <th>畢業學校</th>
+        <td>實踐大學</td>
+        </tr>
+        <tr>
+        <th>畢業系所</th>
+        <td>服裝設計系</td>
+        </tr>
+    </table>
+    </a>
+</div>
+<div class="five" style="background-color:#fff;">
+    <a href="./index.html">
+    <table>
+        <tr>
+        <th colspan="2" style="font-size: 15px">5</th>
+        </tr>
+        <tr>
+        <th>姓名</th>
+        <td>林同學</td>
+        </tr>
+        <tr>
+        <th>准考證號</th>
+        <td>210296810</td>
+        </tr>
+        <tr>
+        <th>畢業學校</th>
+        <td>國立雲林科技大學</td>
+        </tr>
+        <tr>
+        <th>畢業系所</th>
+        <td>工商業設計學系</td>
+        </tr>
+    </table>
+    </a>
+</div>
+<div class="six" style="background-color:#fff;">
+    <a href="./index.html">
+    <table>
+        <tr>
+        <th colspan="2" style="font-size: 15px">6</th>
+        </tr>
+        <tr>
+        <th>姓名</th>
+        <td>朱同學</td>
+        </tr>
+        <tr>
+        <th>准考證號</th>
+        <td>210296810</td>
+        </tr>
+        <tr>
+        <th>畢業學校</th>
+        <td>國立海洋大學</td>
+        </tr>
+        <tr>
+        <th>畢業系所</th>
+        <td>造船系</td>
+        </tr>
+    </table>
+    </a>
+</div>
 <div class="footer" style="background-color:#eee;">
 <p>國立臺北藝術大學</p>
 </div>
